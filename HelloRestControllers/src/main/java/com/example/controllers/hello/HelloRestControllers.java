@@ -1,5 +1,7 @@
 package com.example.controllers.hello;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,8 +24,15 @@ public class HelloRestControllers {
 	
 	@RequestMapping(value = {"/query"}, method = RequestMethod.GET)
 	public String sayHello(@RequestParam(value="name")String name) {
-		return "Hello" + name + " !!";
+		return "Hello " + name + " !!";
 	}
 
+	/* UC-3 (command: curl  "http://localhost:8080/hello/param/Megha" -w "\n" )
+	        (url:     http://localhost:8080/hello/param/Megha ) */
+	
+	@GetMapping ("/param/{name}")
+	public String sayHelloParam(@PathVariable String name) {
+		return "Hello " + name + " !!"; 
+	}
 }
  
