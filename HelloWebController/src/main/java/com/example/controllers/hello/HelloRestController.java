@@ -8,8 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloRestController {
 
 	//UC-1
-		@RequestMapping(value = {"","/","/home"})
-		public static String sayHello() {
-			return "Hello From Bridgelabz!!";
-		}
+	@RequestMapping(value = {"","/","/home"})
+	public static String sayHello() {
+		return "Hello From Bridgelabz!!";
+	}
+	
+	//UC-3
+	@RequestMapping("/")
+	public String index() {
+		return "Hello From Bridgelabz!!";
+	}
+		
 }
